@@ -1,10 +1,10 @@
 {
-  "name": "electron-vue-app",
+  "name": "bhuh-tools",
   "version": "1.0.0",
-  "description": "An Electron application with Vue and TypeScript",
+  "description": "BHUH 工具箱：Electron 开发的自用工具集",
   "main": "./out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://electron-vite.org",
+  "author": "bhuh12",
+  "homepage": "https://github.com/bhuh12/bhuh-tools",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",

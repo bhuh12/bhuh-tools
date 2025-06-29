@@ -1,6 +1,6 @@
-# electron-vue-app
+# BHUH工具箱
 
-An Electron application with Vue and TypeScript
+Electron 开发的自用工具集
 
 ## Recommended IDE Setup
 
