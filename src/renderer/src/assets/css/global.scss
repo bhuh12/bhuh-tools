@@ -1,0 +1,12 @@
+/** 
+ * 工具函数、混入
+ */
+
+$theme-primary: #18a058;
+
+/** 单行文本截断 */
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

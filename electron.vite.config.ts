@@ -15,6 +15,16 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @use "sass:math";
+            @use "@/assets/css/global.scss" as *;
+          `
+        }
+      }
+    },
     resolve: {
       alias
     },
