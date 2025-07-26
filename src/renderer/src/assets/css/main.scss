@@ -11,3 +11,26 @@ body {
   inset: 0;
   z-index: -1;
 }
+
+.n-dialog {
+  backdrop-filter: blur(4px);
+
+  &__title {
+    // 禁用窗口拖动，避免标题栏按钮无法点击
+    app-region: no-drag;
+  }
+}
+
+.n-dropdown-menu {
+  backdrop-filter: blur(2px);
+}
+
+.n-data-table {
+  &-th,
+  &-td {
+    &--fixed-left,
+    &--fixed-right {
+      backdrop-filter: blur(12px);
+    }
+  }
+}

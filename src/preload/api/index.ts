@@ -1,8 +1,10 @@
 import window from './window'
+import file from './file'
 
 // 自定义 API
 const api = {
-  ...window
+  ...window,
+  ...file
 }
 
 export type API = typeof api

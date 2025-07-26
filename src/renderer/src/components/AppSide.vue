@@ -15,7 +15,8 @@
 <script setup lang="tsx" name="AppSide">
 import { RouterLink } from 'vue-router'
 import type { MenuOption } from 'naive-ui'
-import { HomeOutline as HomeIcon } from '@vicons/ionicons5'
+
+import { HomeOutline as HomeIcon, ImageOutline as ImageIcon } from '@vicons/ionicons5'
 
 import { renderIcon } from '@/utils'
 
@@ -30,6 +31,11 @@ const menuItems = [
     label: '首页',
     to: { name: 'Home' },
     icon: HomeIcon
+  },
+  {
+    label: '相册文件重命名',
+    to: { name: 'AlbumRename' },
+    icon: ImageIcon
   }
 ]
 
