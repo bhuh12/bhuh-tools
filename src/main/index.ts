@@ -1,6 +1,7 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { installExtension, VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
@@ -41,6 +42,11 @@ function createWindow(): void {
 app.whenReady().then(() => {
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.electron')
+
+  // 安装 Vue Devtools 浏览器扩展
+  installExtension(VUEJS_DEVTOOLS)
+    .then((extension) => console.log(`已添加扩展:  ${extension.name}`))
+    .catch((err) => console.log('扩展安装失败: ', err))
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.
