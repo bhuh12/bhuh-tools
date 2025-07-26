@@ -2,10 +2,10 @@
   <n-layout-header class="app-header" bordered>
     <div class="app-header__left">
       <img :src="APP_ICON" alt="logo" class="logo" />
-      <div class="title">{{ APP_NAME }}</div>
+      <n-h2 class="title">{{ APP_NAME }}</n-h2>
     </div>
 
-    <div class="app-header__right">工具栏</div>
+    <AppTools />
   </n-layout-header>
 </template>
 
@@ -41,9 +41,7 @@ import { APP_NAME, APP_ICON } from '@/const'
     .title {
       margin: 0 0 0 12px;
       font-size: 18px;
-      font-weight: 500;
       line-height: 28px;
-      color: #fff;
     }
   }
 }

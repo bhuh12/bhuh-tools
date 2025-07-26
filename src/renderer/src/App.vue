@@ -1,6 +1,6 @@
 <template>
-  <n-config-provider>
-    <n-layout class="app-container">
+  <n-config-provider v-bind="nativeProvider">
+    <n-layout class="app-container" :class="`is-theme-${themeSettings.type}`">
       <AppHeader />
 
       <n-layout has-sider>
@@ -23,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+import { nativeProvider, themeSettings } from '@/plugins/nativeUI'
+
 const route = useRoute()
 
 interface RouteMeta {

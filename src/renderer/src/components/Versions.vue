@@ -1,9 +1,13 @@
 <template>
-  <ul class="versions">
+  <n-el
+    tag="ul"
+    class="versions"
+    style="background-color: var(--card-color); transition: 0.3s var(--cubic-bezier-ease-in-out)"
+  >
     <li class="electron-version">Electron v{{ versions.electron }}</li>
     <li class="chrome-version">Chromium v{{ versions.chrome }}</li>
     <li class="node-version">Node v{{ versions.node }}</li>
-  </ul>
+  </n-el>
 </template>
 
 <script setup lang="ts">
