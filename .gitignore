@@ -5,3 +5,6 @@ out
 .eslintcache
 .stylelintcache
 *.log*
+.eslintrc-auto-import.json
+src/renderer/auto-imports.d.ts
+src/renderer/components.d.ts

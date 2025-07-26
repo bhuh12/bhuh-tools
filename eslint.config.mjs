@@ -3,6 +3,10 @@ import eslintConfigPrettier from '@electron-toolkit/eslint-config-prettier'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
 
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const autoImportConfig = require('./.eslintrc-auto-import.json')
+
 export default tseslint.config(
   { ignores: ['**/node_modules', '**/dist', '**/out', '**/public'] },
   tseslint.configs.recommended,
@@ -37,5 +41,11 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off'
     }
   },
-  eslintConfigPrettier
+  eslintConfigPrettier,
+  {
+    // 自动导入变量
+    languageOptions: {
+      ...autoImportConfig
+    }
+  }
 )
