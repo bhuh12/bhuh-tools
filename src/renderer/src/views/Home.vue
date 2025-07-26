@@ -2,7 +2,7 @@
   <div class="page-home">
     <img alt="logo" class="logo" :src="APP_ICON" />
 
-    <h1 class="title">{{ APP_NAME }}</h1>
+    <n-h1 class="title">{{ APP_NAME }}</n-h1>
 
     <Versions />
   </div>

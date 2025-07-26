@@ -1,13 +1,25 @@
 <template>
-  <div class="app-container">
-    <RouterView v-slot="{ Component }">
-      <KeepAlive>
-        <Component :is="Component" v-if="alive" :key="$route.path" />
-      </KeepAlive>
+  <n-config-provider>
+    <n-layout class="app-container">
+      <AppHeader />
 
-      <Component :is="Component" v-if="!alive" />
-    </RouterView>
-  </div>
+      <n-layout has-sider>
+        <AppSide />
+
+        <n-layout-content>
+          <RouterView v-slot="{ Component }">
+            <KeepAlive>
+              <Component :is="Component" v-if="alive" :key="$route.path" />
+            </KeepAlive>
+
+            <Component :is="Component" v-if="!alive" />
+          </RouterView>
+        </n-layout-content>
+      </n-layout>
+
+      <AppFooter />
+    </n-layout>
+  </n-config-provider>
 </template>
 
 <script setup lang="ts">
@@ -30,5 +42,10 @@ const alive = computed(() => meta.value.alive !== false)
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+
+  > :deep(.n-layout-scroll-container) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
