@@ -1,26 +1,34 @@
-<script setup lang="ts">
-import Versions from './components/Versions.vue'
+<template>
+  <div class="app-container">
+    <RouterView v-slot="{ Component }">
+      <KeepAlive>
+        <Component :is="Component" v-if="alive" :key="$route.path" />
+      </KeepAlive>
 
-const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+      <Component :is="Component" v-if="!alive" />
+    </RouterView>
+  </div>
+</template>
+
+<script setup lang="ts">
+const route = useRoute()
+
+interface RouteMeta {
+  title?: string
+  alive?: boolean
+}
+
+/** 路由元数据 */
+const meta = computed(() => route.meta as RouteMeta)
+
+/** 当前组件是否缓存 */
+const alive = computed(() => meta.value.alive !== false)
 </script>
 
-<template>
-  <img alt="logo" class="logo" src="./assets/img/icon.png" />
-  <div class="creator">Powered by electron-vite</div>
-  <div class="text">
-    Build an Electron app with
-    <span class="vue">Vue</span>
-    and
-    <span class="ts">TypeScript</span>
-  </div>
-  <p class="tip">Please try pressing <code>F12</code> to open the devTool</p>
-  <div class="actions">
-    <div class="action">
-      <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">Documentation</a>
-    </div>
-    <div class="action">
-      <a target="_blank" rel="noreferrer" @click="ipcHandle">Send IPC</a>
-    </div>
-  </div>
-  <Versions />
-</template>
+<style lang="scss" scoped>
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+</style>

@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import { reactive } from 'vue'
-
-const versions = reactive({ ...window.electron.process.versions })
-</script>
-
 <template>
   <ul class="versions">
     <li class="electron-version">Electron v{{ versions.electron }}</li>
@@ -11,3 +5,36 @@ const versions = reactive({ ...window.electron.process.versions })
     <li class="node-version">Node v{{ versions.node }}</li>
   </ul>
 </template>
+
+<script setup lang="ts">
+const versions = reactive({ ...window.electron.process.versions })
+</script>
+
+<style lang="scss" scoped>
+.versions {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 0;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: Menlo, 'Lucida Console', monospace;
+  background-color: rgb(0 0 0 / 20%);
+  border-radius: 22px;
+  backdrop-filter: blur(2px);
+
+  li {
+    float: left;
+    display: block;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 14px;
+    text-shadow: 1px 1px 0 rgb(0 0 0 / 10%);
+    border-right: 1px solid var(--ev-c-gray-1);
+    opacity: 0.8;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+</style>
