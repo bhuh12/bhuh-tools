@@ -9,6 +9,7 @@
   "exclude": ["src/renderer/public/**/*"],
   "compilerOptions": {
     "composite": true,
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/renderer/src/*"],

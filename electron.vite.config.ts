@@ -1,6 +1,9 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
+// @ts-ignore - no types available for this plugin
 import vue from '@vitejs/plugin-vue'
+// @ts-ignore - no types available for this plugin
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const alias = {
   '@': resolve('src/renderer/src'),
@@ -28,6 +31,6 @@ export default defineConfig({
     resolve: {
       alias
     },
-    plugins: [vue()]
+    plugins: [vue(), vueJsx()]
   }
 })

@@ -29,7 +29,7 @@ export default tseslint.config(
         'error',
         {
           script: {
-            lang: 'ts'
+            lang: ['ts', 'tsx']
           }
         }
       ],

@@ -43,6 +43,7 @@
     "@electron-toolkit/tsconfig": "^1.0.1",
     "@types/node": "^24.0.10",
     "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue-jsx": "^5.0.1",
     "electron": "^37.2.0",
     "electron-builder": "^26.0.12",
     "electron-vite": "^4.0.0",
