@@ -21,6 +21,8 @@ import { APP_NAME, APP_ICON } from '@/const'
   height: 56px;
   padding: 0 12px;
   backdrop-filter: blur(4px);
+  // 标题栏原生拖动
+  app-region: drag;
 
   &__left {
     display: flex;

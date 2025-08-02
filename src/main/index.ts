@@ -3,6 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { installExtension, VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import icon from '../../resources/icon.png?asset'
+import initApi from './api'
 
 function createWindow(): void {
   // Create the browser window.
@@ -11,6 +12,10 @@ function createWindow(): void {
     height: 670,
     show: false,
     autoHideMenuBar: true,
+    /** 自定义标题栏样式 */
+    titleBarStyle: 'hidden',
+    /** 背景材质：亚克力 */
+    backgroundMaterial: 'acrylic',
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -18,7 +23,12 @@ function createWindow(): void {
     }
   })
 
+  // 禁用菜单栏
+  mainWindow.setMenu(null)
+
   mainWindow.on('ready-to-show', () => {
+    // 窗口就绪后立即最大化
+    mainWindow.maximize()
     mainWindow.show()
   })
 
@@ -34,6 +44,8 @@ function createWindow(): void {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  initApi(mainWindow)
 }
 
 // This method will be called when Electron has finished

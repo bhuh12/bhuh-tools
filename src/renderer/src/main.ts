@@ -5,4 +5,9 @@ import router from './plugins/router'
 import './plugins/color4Bg'
 import App from './App.vue'
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App).use(router)
+
+app.mount('#app')
+
+// 挂载全局方法
+app.config.globalProperties.$api = window.api
